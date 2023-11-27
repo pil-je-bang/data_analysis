@@ -1,0 +1,99 @@
+import calc_module as c
+import math as m
+import random as r
+
+# print(c.add(2,3))
+# print(c.sub(2,3))
+# print(c.mul(2,3))
+# print(c.div(3,2))
+
+
+
+# print(m.floor(3.141592))
+# print(m.ceil(3.411592))
+# print(m.sqrt(9))
+
+
+# a = []
+# for i in range(0,4):
+#   a.append(r.randint(1,100))
+# a.sort()
+# print(a)
+
+
+
+# a = r.randint(1,10)
+# while True:
+#   user_a = int(input("숫자를 맞춰보세요 : "))
+
+
+#   if a == user_a:
+#     print(f'맞았어요! 랜덤숫자는 {user_a} 입니다!')
+#     break
+#   else:
+#     print("땡")
+
+
+
+# lotto_num = list(range(1,46)) #range는 46까지 해야된다.
+
+# lotto = r.sample(lotto_num, 6)
+# print(lotto)
+
+
+# f = open("./test3.txt", "w")
+# f.write("hello wordl\nadfadsfasd")
+# f.close()
+
+# f2 = open("./test3.txt", "r")
+# print(f2.readlines())
+# f2.close()
+
+# f3 = open("./test3.txt", "a")
+# f3.write("hello world22\n")
+# f3.close
+
+
+# f4 = open("./member.txt", "w")
+# for i in range(3):
+#     member = input("회원의 이름을 입력하세요")
+#     pw = input("비밀번호를 입력하세요")
+#     f4.write(f"이름 : {member}, 비밀번호 : {pw}\n")
+# f4.close()
+
+
+while(1):
+    input_id = input("아이디를 입력하세요")
+    input_pw = input("비밀번호를 입력하세요")
+
+    f5 = open("./member.txt", "r")
+    member_list = f5.readlines()
+    f5.close()
+    check = "이름 : " + input_id + ", 비밀번호 : " + input_pw + "\n"
+    if check in member_list:
+        print("로그인 성공")
+        f7 = open("./member_tel.txt", "r")
+        tel_list = f7.readlines()
+        f7.close()
+        for i in tel_list:
+            tel_list1 = i.split(",")
+            if "이름 : " + input_id in tel_list1:
+                revise_phone = input("수정할 전화번호를 입력하세요")
+                f8 = open("./member_tel.txt", "r+")
+                f8.write(f"이름 : {input_id}, 전화번호 : {revise_phone}\n")
+                f8.close()
+                break
+            else:
+                phone_number = input("전화번호를 입력하세요")
+                f6 = open("./member_tel.txt", "a")
+                f6.write(f"이름 : {input_id}, 전화번호 : {phone_number}\n")
+                f6.close()
+                break
+        break
+    else:
+        print("로그인 실패")
+
+
+
+
+

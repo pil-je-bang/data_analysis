@@ -1,0 +1,71 @@
+num = int(input("정수 n을 입력하세요: "))
+nums = []
+for i in range(1, num+1):
+  nums.append(i)
+print(nums[::2])
+print(nums[1::2])
+
+vending_machine = ['게토레이', '레쓰비', '생수', '이프로']
+while 1:
+  print("============restart")
+  beverage = input("마시고 싶은 음료? ")
+  if beverage in vending_machine:
+    print(f'{beverage} 드릴게요')
+  else:
+    print(f'{beverage}는 지금 없네요')
+
+    vending_machine = ['게토레이','게토레이','레쓰비','레쓰비','생수','생수','생수','이프로']
+
+print("남은 음료수 : ", vending_machine)
+while True:
+  print("사용자의 종류를 입력하세요 : ")
+  print("1. 소비자")
+  print("2. 주인")
+  user = input()
+  if user == '1':
+    beverage = input("마시고 싶은 음료? ")
+    if beverage in vending_machine:
+      print(f'{beverage} 드릴게요')
+      vending_machine.pop(vending_machine.index(beverage))
+      print("남은 음료수 : ", vending_machine)
+      break
+    else:
+      print(f"{beverage} 없음")
+  elif user == '2':
+    work = input("할 일 선택(1. 추가, 2. 삭제) : ")
+    if work == '1':
+      print("남은 음료수 : ", vending_machine)
+      add_beverage = input("추가할 음료? ")
+      vending_machine.append(add_beverage)
+      vending_machine.sort()
+      print("추가 완료")
+      print("남은 음료수 : ", vending_machine)
+      break
+    elif work == '2':
+      print("남은 음료수 : ", vending_machine)
+      del_beverage = input("삭제할 음료? ")
+      if del_beverage in vending_machine:
+        vending_machine.pop(vending_machine.index(del_beverage))
+        print("삭제 완료")
+        print("남은 음료수 : ", vending_machine)
+        break
+      else:
+        print(f'{del_beverage}는 지금 없네요')
+    else:
+      print('잘못된 입력입니다.')
+  else:
+    print("잘못된 입력입니다.")
+
+n = int(input("몇 단을 출력할까요? "))
+for i in range(1, 10):
+  print(n,"*",i, "=", n*i)
+
+star = int(input("몇 줄? > "))
+for i in range(1,star+1):
+  print(" "*(star-i),"*"*i)
+
+for i in range(1,star+1):
+  print("*"*i)
+
+for i in range(1,star+1):
+  print(" "*(star-i),"*"*(2*(i-1)+1)," "*(star-i))
