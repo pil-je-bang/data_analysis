@@ -122,6 +122,12 @@ cctv_compare_top5 = cctv_compare_top5.append(cctv_compare.loc[cctv_compare['지�
 cctv_compare_top5 = cctv_compare_top5.append(cctv_compare.loc[cctv_compare['지역'] == '강서구'])
 cctv_compare_top5.set_index('지역', inplace=True)
 
+#cctv 증가율
+cctv_compare.set_index('지역', inplace=True)
+cctv_increase = (cctv_compare['2022년']/cctv_compare['2015년'])*100
+cctv_increase.median()
+cctv_increase.mean()
+
 
 #시각화
 cctv_compare_top5.plot.bar(rot=0)
