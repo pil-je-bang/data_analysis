@@ -241,6 +241,7 @@ data2_1 = data2[['2022년']]
 data2_1.dropna(inplace = True)
 
 data_cctv_criminal = pd.concat([data2_1,data1_1], axis = 1)
+data_cctv_criminal = data_cctv_criminal.drop([22], axis = 0)
 
 sns.scatterplot(x=data_cctv_criminal['2022년'], y=data_cctv_criminal['2022'])
 sns.regplot(x=data_cctv_criminal['2022년'], y=data_cctv_criminal['2022'])
